@@ -7,7 +7,7 @@
     <groupId>stats-tracker</groupId>
     <artifactId>stats-tracker</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <prerequisites>
         <maven>3.0.0</maven>
