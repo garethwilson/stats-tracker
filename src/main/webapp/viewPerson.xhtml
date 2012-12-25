@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: gareth
+  Date: 26/12/12
+  Time: 11:35 AM
+-->
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>View Person</title>
+</h:head>
+
+<h:body>
+    <h:outputLabel for="name" value="Name:" />
+    <h:outputText id="name" value="#{person.name}"/>
+
+    <h:outputLabel for="createdDate" value="Created Date:" />
+    <h:outputText id="createdDate" value="#{person.createdDate}"/>
+</h:body>
+
+</html>
