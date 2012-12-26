@@ -1,5 +1,9 @@
 package gazbox.tracker.stats.model;
 
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
 /**
  * Created by: gareth
  * Date: 26/12/12
@@ -7,9 +11,14 @@ package gazbox.tracker.stats.model;
  */
 public class Statistic {
 
-    private String statName;
+    @Id
+    private long id;
+
+    @ManyToOne
+    private StatisticType type;
 
     private int count;
 
+    @ManyToMany
     private Person person;
 }

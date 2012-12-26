@@ -1,6 +1,9 @@
 package gazbox.tracker.stats.model;
 
+import javax.annotation.Generated;
 import javax.inject.Named;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 
 /**
@@ -9,7 +12,11 @@ import java.util.Date;
  * Time: 10:55 AM
  */
 @Named
+@Entity
 public class Person {
+
+    @Id
+    private long id;
 
     private String name;
 
