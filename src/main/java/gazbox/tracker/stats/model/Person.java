@@ -22,6 +22,14 @@ public class Person {
 
     private Date createdDate;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
