@@ -1,6 +1,7 @@
 package gazbox.tracker.stats.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Created by: gareth
@@ -10,6 +11,7 @@ import javax.persistence.Entity;
 @Entity
 public class StatisticType {
 
+    @Id
     private long id;
 
     private String name;

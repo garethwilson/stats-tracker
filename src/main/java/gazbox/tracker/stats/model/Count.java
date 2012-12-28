@@ -1,7 +1,6 @@
 package gazbox.tracker.stats.model;
 
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 /**
@@ -9,7 +8,7 @@ import javax.persistence.ManyToOne;
  * Date: 26/12/12
  * Time: 11:02 AM
  */
-public class Statistic {
+public class Count {
 
     @Id
     private long id;
@@ -17,13 +16,13 @@ public class Statistic {
     @ManyToOne
     private StatisticType type;
 
-    @ManyToMany
+    @ManyToOne
     private Fixture fixture;
 
-    @ManyToMany
+    @ManyToOne
     private Person person;
 
-    private int count;
+    private int value;
 
     public long getId() {
         return id;
@@ -57,11 +56,11 @@ public class Statistic {
         this.person = person;
     }
 
-    public int getCount() {
-        return count;
+    public int getValue() {
+        return value;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public void setValue(int value) {
+        this.value = value;
     }
 }
