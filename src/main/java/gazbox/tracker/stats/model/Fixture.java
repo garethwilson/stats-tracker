@@ -1,5 +1,6 @@
 package gazbox.tracker.stats.model;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.util.Date;
@@ -9,6 +10,7 @@ import java.util.Date;
  * Date: 27/12/12
  * Time: 9:10 AM
  */
+@Entity
 public class Fixture {
 
     @Id

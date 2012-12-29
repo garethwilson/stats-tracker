@@ -1,5 +1,6 @@
 package gazbox.tracker.stats.model;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -8,6 +9,7 @@ import javax.persistence.ManyToOne;
  * Date: 26/12/12
  * Time: 11:02 AM
  */
+@Entity
 public class Count {
 
     @Id
