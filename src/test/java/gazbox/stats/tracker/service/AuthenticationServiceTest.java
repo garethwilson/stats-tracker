@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
+ * Simple tests.
+ *
  * Created by: gareth
  * Date: 30/12/12
  * Time: 10:10 AM
