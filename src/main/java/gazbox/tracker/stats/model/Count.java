@@ -1,8 +1,6 @@
 package gazbox.tracker.stats.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * Created by: gareth
@@ -13,6 +11,7 @@ import javax.persistence.ManyToOne;
 public class Count {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @ManyToOne
@@ -24,6 +23,7 @@ public class Count {
     @ManyToOne
     private Person person;
 
+    @Column(nullable = false)
     private int value;
 
     public long getId() {

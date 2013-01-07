@@ -1,7 +1,6 @@
 package gazbox.tracker.stats.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by: gareth
@@ -12,8 +11,10 @@ import javax.persistence.Id;
 public class Opposition {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(nullable = false)
     private String name;
 
     public long getId() {

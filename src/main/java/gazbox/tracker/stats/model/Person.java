@@ -1,9 +1,7 @@
 package gazbox.tracker.stats.model;
 
-import javax.annotation.Generated;
 import javax.inject.Named;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -16,10 +14,14 @@ import java.util.Date;
 public class Person {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false)
     private Date createdDate;
 
     public long getId() {
