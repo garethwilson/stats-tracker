@@ -19,10 +19,6 @@ public class AuthenticationService {
 
         User user = (User) em.createQuery("select user from User user where user.username = :username").setParameter("username", username).getSingleResult();
 
-        if (user == null) {
-            return null;
-        }
-
         if (user.getHashedPassword().equals(password)) {
             return user;
         }
