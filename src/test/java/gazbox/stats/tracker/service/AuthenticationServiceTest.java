@@ -21,6 +21,10 @@ public class AuthenticationServiceTest {
            testee = new AuthenticationService();
     }
 
+
+    /**
+     * TODO: Add an actual test...
+     */
     @Test
     public void testAuthenticateUser() {
         Assert.assertNull("Not implemented so should be null", testee.authenticateUser("username", "password"));
