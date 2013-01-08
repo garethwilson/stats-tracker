@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>View Player</title>
+</h:head>
+
+<h:body>
+    <p:outputLabel for="name" value="Name:" />
+    <h:outputText id="name" value="#{person.name}"/>
+
+    <p:outputLabel for="createdDate" value="Created Date:" />
+    <h:outputText id="createdDate" value="#{person.createdDate}"/>
+</h:body>
+
+</html>
