@@ -93,6 +93,22 @@
 
     <profiles>
         <profile>
+            <id>local-as7</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.3</version>
+                        <configuration>
+                            <outputDirectory>${env.JBOSS_HOME}/standalone/deployments</outputDirectory>
+                            <warName>ROOT</warName>
+                            <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
             <!-- When built in OpenShift the 'openshift' profile will be used when invoking mvn. -->
             <!-- Use this profile for any OpenShift specific customization your app will need. -->
             <!-- By default that is to put the resulting archive into the 'deployments' folder. -->
