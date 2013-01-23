@@ -21,7 +21,7 @@ public class Count {
     private Fixture fixture;
 
     @ManyToOne
-    private Person person;
+    private Player player;
 
     @Column(nullable = false)
     private int value;
@@ -50,12 +50,12 @@ public class Count {
         this.fixture = fixture;
     }
 
-    public Person getPerson() {
-        return person;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     public int getValue() {

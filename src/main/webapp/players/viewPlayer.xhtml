@@ -2,18 +2,25 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:p="http://primefaces.org/ui">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+        >
 
 <h:head>
-    <title>View Player</title>
+    <title>Edit Player</title>
+    <f:metadata>
+        <f:viewParam name="id" value="#{playerController.id}"/>
+    </f:metadata>
 </h:head>
 
 <h:body>
-    <p:outputLabel for="name" value="Name:" />
-    <h:outputText id="name" value="#{person.name}"/>
+    <p:outputLabel for="name" value="Name:"/>
+    <h:outputText id="name" value="#{playerController.instance.name}"/>
 
-    <p:outputLabel for="createdDate" value="Created Date:" />
-    <h:outputText id="createdDate" value="#{person.createdDate}"/>
+    <p:outputLabel for="createdDate" value="Created Date:"/>
+    <h:outputText id="createdDate" value="#{playerController.instance.createdOn}"/>
+
+    <h:link outcome="/players/editPlayer.xhtml" value="Edit" includeViewParams="true" />
 </h:body>
 
 </html>

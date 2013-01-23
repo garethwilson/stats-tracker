@@ -1,7 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
+<faces-config
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://java.sun.com/xml/ns/javaee" version="2.1">
 
-<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
-              version="2.0">
+    <navigation-rule>
+        <from-view-id>/players/editPlayer.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>saved</from-outcome>
+            <to-view-id>/players/viewPlayer.xhtml</to-view-id>
+            <redirect include-view-params="true"/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>cancelled</from-outcome>
+            <if>#{playerController.managed}</if>
+            <to-view-id>/players/viewPlayer.xhtml?id=#{playerController.id}</to-view-id>
+            <redirect include-view-params="true"/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>cancelled</from-outcome>
+            <if>#{!playerController.managed}</if>
+            <to-view-id>/home.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>deleted</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+    </navigation-rule>
+
 </faces-config>

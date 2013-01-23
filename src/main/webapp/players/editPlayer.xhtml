@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Add Player</title>
+    <f:metadata>
+        <f:viewParam name="id" value="#{playerController.id}" />
+        <f:event type="preRenderView" listener="#{playerController.initConversation}"/>
+    </f:metadata>
+</h:head>
+
+<h:body>
+    <h:form>
+
+        <p:outputLabel value="ID:" rendered="#{playerController.managed}"/>
+        <h:outputText value="#{playerController.instance.id}" styleClass="value" rendered="#{playerController.managed}"/>
+
+        <p:outputLabel for="name" value="Name:"/>
+        <p:inputText id="name" value="#{playerController.instance.name}"/>
+
+        <p:commandButton action="#{playerController.save()}" value="Save"/>
+        <p:commandButton value="Delete" action="#{playerController.delete}" rendered="#{playerController.managed}"/>
+
+        <p:commandButton value="Cancel" action="#{playerController.cancel}" immediate="true" />
+    </h:form>
+</h:body>
+
+</html>

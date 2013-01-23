@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Edit Fixture</title>
+    <f:metadata>
+        <f:viewParam name="id" value="#{fixtureController.id}" />
+        <f:event type="preRenderView" listener="#{fixtureController.initConversation}"/>
+    </f:metadata>
+</h:head>
+
+<h:body>
+    <h:form>
+
+        <p:outputLabel value="ID:" rendered="#{fixtureController.managed}"/>
+        <h:outputText value="#{fixtureController.instance.id}" styleClass="value" rendered="#{fixtureController.managed}"/>
+
+        <p:outputLabel for="against" value="Against:"/>
+        <p:selectOneMenu id="against" value="#{fixtureController.instance.opposition}" converter="#{oppositionConverter}">
+            <f:selectItems value="#{oppositions}" var="_opposition" itemLabel="#{_opposition.name}" itemValue="#{_opposition}"/>
+        </p:selectOneMenu>
+
+        <p:outputLabel for="playedOn" value="Played On:"/>
+        <p:calendar id="playedOn" value="#{fixtureController.instance.datePlayed}"/>
+
+        <p:commandButton action="#{fixtureController.save()}" value="Save"/>
+        <p:commandButton value="Delete" action="#{fixtureController.delete}" rendered="#{fixtureController.managed}"/>
+
+        <p:commandButton value="Cancel" action="#{fixtureController.cancel}" immediate="true" />
+    </h:form>
+</h:body>
+
+</html>

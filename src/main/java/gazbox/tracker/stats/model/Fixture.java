@@ -9,24 +9,17 @@ import java.util.Date;
  * Time: 9:10 AM
  */
 @Entity
-public class Fixture {
+public class Fixture extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Opposition opposition;
 
     @Column(nullable = false)
     private Date datePlayed;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    @Override
+    public String getDisplayText() {
+        return "Fixture against " + opposition.getName() + " on " + datePlayed;
     }
 
     public Opposition getOpposition() {
@@ -44,4 +37,7 @@ public class Fixture {
     public void setDatePlayed(Date datePlayed) {
         this.datePlayed = datePlayed;
     }
+
+
+
 }

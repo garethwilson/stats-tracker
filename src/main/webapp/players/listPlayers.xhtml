@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
@@ -10,27 +11,35 @@
 </h:head>
 
 <h:body>
+    <ui:debug hotkey="x"/>
     <h:form>
-        <p:dataTable value="#{addPersonController.players}" var="player">
+        <p:dataTable value="#{players}" var="_opposition">
             <p:column>
                 <!-- column header -->
                 <f:facet name="header">ID</f:facet>
                 <!-- row record -->
-                #{player.id}
+                <h:outputText value="#{_opposition.id}"/>
             </p:column>
             <p:column>
                 <!-- column header -->
                 <f:facet name="header">Name</f:facet>
                 <!-- row record -->
-                #{player.name}
+                <h:outputText value="#{_opposition.name}"/>
             </p:column>
             <p:column>
                 <!-- column header -->
                 <f:facet name="header">Created Date</f:facet>
                 <!-- row record -->
-                #{player.createdDate}
+                <h:outputText value="#{_opposition.createdOn}"/>
+            </p:column>
+            <p:column>
+                <!-- row record -->
+                <h:link outcome="/players/viewPlayer.xhtml?id=#{_opposition.id}" value="View details"/>
             </p:column>
         </p:dataTable>
+
+        <h:link outcome="/players/editPlayer.xhtml" value="Create Player"/>
+
     </h:form>
 </h:body>
 

@@ -1,14 +1,17 @@
 package gazbox.tracker.stats.model;
 
-import javax.persistence.*;
+import javax.inject.Named;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
 /**
  * Created by: gareth
- * Date: 27/12/12
- * Time: 9:10 AM
+ * Date: 26/12/12
+ * Time: 10:55 AM
  */
+@Named
 @Entity
-public class Opposition extends BaseEntity {
+public class Player extends BaseEntity {
 
     @Column(nullable = false)
     private String name;
@@ -24,5 +27,12 @@ public class Opposition extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }
