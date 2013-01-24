@@ -2,6 +2,7 @@ package gazbox.tracker.stats.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by: gareth
@@ -16,6 +17,9 @@ public class Fixture extends BaseEntity{
 
     @Column(nullable = false)
     private Date datePlayed;
+
+    @ManyToMany
+    private List<Player> players;
 
     @Override
     public String getDisplayText() {
@@ -38,6 +42,11 @@ public class Fixture extends BaseEntity{
         this.datePlayed = datePlayed;
     }
 
+    public List<Player> getPlayers() {
+        return players;
+    }
 
-
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
 }

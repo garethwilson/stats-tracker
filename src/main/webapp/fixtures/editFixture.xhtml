@@ -8,7 +8,7 @@
 <h:head>
     <title>Edit Fixture</title>
     <f:metadata>
-        <f:viewParam name="id" value="#{fixtureController.id}" />
+        <f:viewParam name="id" value="#{fixtureController.id}"/>
         <f:event type="preRenderView" listener="#{fixtureController.initConversation}"/>
     </f:metadata>
 </h:head>
@@ -17,20 +17,27 @@
     <h:form>
 
         <p:outputLabel value="ID:" rendered="#{fixtureController.managed}"/>
-        <h:outputText value="#{fixtureController.instance.id}" styleClass="value" rendered="#{fixtureController.managed}"/>
+        <h:outputText value="#{fixtureController.instance.id}" styleClass="value"
+                      rendered="#{fixtureController.managed}"/>
 
         <p:outputLabel for="against" value="Against:"/>
-        <p:selectOneMenu id="against" value="#{fixtureController.instance.opposition}" converter="#{oppositionConverter}">
-            <f:selectItems value="#{oppositions}" var="_opposition" itemLabel="#{_opposition.name}" itemValue="#{_opposition}"/>
+        <p:selectOneMenu id="against" value="#{fixtureController.instance.opposition}"
+                         converter="#{oppositionConverter}">
+            <f:selectItems value="#{oppositions}" var="_opposition" itemLabel="#{_opposition.name}"
+                           itemValue="#{_opposition}"/>
         </p:selectOneMenu>
 
         <p:outputLabel for="playedOn" value="Played On:"/>
         <p:calendar id="playedOn" value="#{fixtureController.instance.datePlayed}"/>
 
+        <p:pickList id="playersPickList" value="#{fixtureController.players}" var="_player" converter="#{playerConverter}"
+                    itemValue="#{_player}" itemLabel="#{_player.name}" />
+
+
         <p:commandButton action="#{fixtureController.save()}" value="Save"/>
         <p:commandButton value="Delete" action="#{fixtureController.delete}" rendered="#{fixtureController.managed}"/>
 
-        <p:commandButton value="Cancel" action="#{fixtureController.cancel}" immediate="true" />
+        <p:commandButton value="Cancel" action="#{fixtureController.cancel}" immediate="true"/>
     </h:form>
 </h:body>
 
