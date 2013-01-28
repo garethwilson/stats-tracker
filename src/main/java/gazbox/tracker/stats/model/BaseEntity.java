@@ -49,7 +49,7 @@ public abstract class BaseEntity implements Serializable {
     }
 
     @Transient
-    public abstract String getDisplayText();
+    protected abstract String getDisplayText();
 
     @PrePersist
     public void initTimeStamps() {

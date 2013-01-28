@@ -13,5 +13,5 @@ public enum AppliesTo {
 
     TEAM,
 
-    GOAL_KEEPER;
+    GOAL_KEEPER
 }

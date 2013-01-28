@@ -1,0 +1,41 @@
+apply plugin: 'war'
+apply plugin: 'project-report'
+apply plugin: 'gitrelease'
+
+task deploy(type: Copy) {
+    from 'build/libs/stats-tracker.war'
+    into 'C:/development/appservers/jboss-as-7.1.1.Final/standalone/deployments'
+}
+
+task start(type: Exec) {
+    commandLine = ['cmd', '/c', 'net', 'start', 'JBAS70SVC']
+}
+
+task stop(type: Exec) {
+    commandLine = ['cmd', '/c', 'net', 'stop', 'JBAS70SVC']
+}
+
+dependencies {
+    providedCompile 'javax:javaee-api:6.0'
+    providedCompile 'javax.faces:jsf-api:2.1'
+    compile 'org.primefaces:primefaces:3.5.RC1'
+    testCompile 'junit:junit:4.11'
+}
+
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://repository.primefaces.org"
+    }
+}
+
+buildscript {
+    dependencies {
+        classpath 'no.entitas.gradle:gradle-release-plugin:1.16'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}
